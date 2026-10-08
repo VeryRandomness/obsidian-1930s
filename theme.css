@@ -1,0 +1,232 @@
+/* 1930s: pure greyscale with muted callout colours. */
+
+/* @settings
+
+name: 1930s
+id: 1930s
+settings:
+    -
+        id: file-line-width
+        title: Note content width
+        type: variable-number-slider
+        default: 700
+        min: 400
+        max: 1200
+        step: 10
+        format: px
+    -
+        id: theme-corner-radius
+        title: Corner radius
+        type: variable-number-slider
+        default: 0
+        min: 0
+        max: 24
+        step: 1
+        format: px
+*/
+
+body {
+  --mono-radius: 0px;
+  --radius-s: var(--mono-radius);
+  --radius-m: var(--mono-radius);
+  --radius-l: var(--mono-radius);
+  --radius-xl: var(--mono-radius);
+  --theme-corner-radius: 0px;
+  --file-line-width: 700px;
+}
+
+.theme-light {
+  --color-base-00: #ffffff;
+  --color-base-05: #fafafa;
+  --color-base-10: #f2f2f2;
+  --color-base-20: #e8e8e8;
+  --color-base-25: #dedede;
+  --color-base-30: #cfcfcf;
+  --color-base-35: #b8b8b8;
+  --color-base-40: #999999;
+  --color-base-50: #777777;
+  --color-base-60: #5c5c5c;
+  --color-base-70: #404040;
+  --color-base-100: #111111;
+}
+
+.theme-dark {
+  --color-base-00: #0c0c0c;
+  --color-base-05: #111111;
+  --color-base-10: #171717;
+  --color-base-20: #1e1e1e;
+  --color-base-25: #262626;
+  --color-base-30: #333333;
+  --color-base-35: #454545;
+  --color-base-40: #666666;
+  --color-base-50: #888888;
+  --color-base-60: #a8a8a8;
+  --color-base-70: #c8c8c8;
+  --color-base-100: #f2f2f2;
+}
+
+/* Kill every colour: map all named colours to greys. */
+.theme-light,
+.theme-dark {
+  --color-red: var(--color-base-100);
+  --color-orange: var(--color-base-70);
+  --color-yellow: var(--color-base-60);
+  --color-green: var(--color-base-70);
+  --color-cyan: var(--color-base-60);
+  --color-blue: var(--color-base-100);
+  --color-purple: var(--color-base-70);
+  --color-pink: var(--color-base-60);
+
+  --color-red-rgb: var(--callout-muted-red-rgb);
+  --color-orange-rgb: var(--callout-muted-orange-rgb);
+  --color-yellow-rgb: var(--callout-muted-orange-rgb);
+  --color-green-rgb: var(--callout-muted-green-rgb);
+  --color-cyan-rgb: var(--callout-muted-cyan-rgb);
+  --color-blue-rgb: var(--callout-muted-blue-rgb);
+  --color-purple-rgb: var(--callout-muted-purple-rgb);
+  --color-pink-rgb: var(--callout-muted-red-rgb);
+
+  --accent-h: 0;
+  --accent-s: 0%;
+  --accent-l: 50%;
+  --color-accent: var(--color-base-100);
+  --color-accent-1: var(--color-base-100);
+  --color-accent-2: var(--color-base-70);
+
+  --interactive-accent: var(--color-base-100);
+  --interactive-accent-hover: var(--color-base-70);
+  --text-on-accent: var(--color-base-00);
+  --text-on-accent-inverted: var(--color-base-00);
+
+  --text-accent: var(--color-base-100);
+  --text-accent-hover: var(--color-base-60);
+  --text-highlight-bg: var(--color-base-30);
+  --text-selection: var(--color-base-30);
+
+  --background-modifier-error: var(--color-base-50);
+  --background-modifier-error-hover: var(--color-base-60);
+  --background-modifier-success: var(--color-base-40);
+  --text-error: var(--color-base-100);
+  --text-success: var(--color-base-70);
+  --text-warning: var(--color-base-60);
+
+  --link-color: var(--color-base-100);
+  --link-color-hover: var(--color-base-60);
+  --link-external-color: var(--color-base-100);
+  --link-external-color-hover: var(--color-base-60);
+  --link-unresolved-color: var(--color-base-50);
+  --link-unresolved-opacity: 1;
+
+  --tag-color: var(--color-base-100);
+  --tag-background: var(--color-base-25);
+  --tag-border-color: var(--color-base-35);
+
+  --blockquote-border-color: var(--color-base-100);
+  --blockquote-color: var(--color-base-60);
+  --hr-color: var(--color-base-35);
+  --code-background: var(--color-base-20);
+  --code-normal: var(--color-base-70);
+
+  --checkbox-color: var(--color-base-100);
+  --checkbox-color-hover: var(--color-base-70);
+  --checkbox-marker-color: var(--color-base-00);
+
+  --graph-line: var(--color-base-35);
+  --graph-node: var(--color-base-60);
+  --graph-node-focused: var(--color-base-100);
+  --graph-node-tag: var(--color-base-50);
+  --graph-node-attachment: var(--color-base-40);
+  --graph-node-unresolved: var(--color-base-35);
+}
+.theme-light { --mono-rgb: 64, 64, 64; }
+.theme-dark  { --mono-rgb: 200, 200, 200; }
+
+/* Typography */
+body {
+  --font-text-theme: "Inter", system-ui, sans-serif;
+  --font-interface-theme: "Inter", system-ui, sans-serif;
+  --font-monospace-theme: "Ubuntu Mono", ui-monospace, monospace;
+  --h1-weight: 700;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+  --h1-color: var(--color-base-100);
+  --h2-color: var(--color-base-100);
+  --h3-color: var(--color-base-100);
+  --h4-color: var(--color-base-100);
+  --h5-color: var(--color-base-100);
+  --h6-color: var(--color-base-60);
+  --bold-color: var(--color-base-100);
+  --italic-color: var(--color-base-100);
+}
+
+/* Subtle structure: hairline borders, flat surfaces */
+body {
+  --divider-color: var(--color-base-30);
+  --background-primary: var(--color-base-00);
+  --background-primary-alt: var(--color-base-10);
+  --background-secondary: var(--color-base-05);
+  --background-secondary-alt: var(--color-base-10);
+}
+
+/* Highlights and callouts: remove colour tints, use grey tints */
+mark {
+  background-color: var(--color-base-30);
+  color: var(--color-base-100);
+}
+/* Callouts: muted, desaturated colours (the one place colour is allowed) */
+.theme-light { --callout-muted-blue-rgb: 100, 121, 148; --callout-muted-cyan-rgb: 98, 138, 143; --callout-muted-green-rgb: 108, 140, 112; --callout-muted-orange-rgb: 168, 130, 90; --callout-muted-red-rgb: 164, 105, 105; --callout-muted-purple-rgb: 134, 112, 155; --callout-muted-gray-rgb: 120, 120, 120; }
+.theme-dark  { --callout-muted-blue-rgb: 128, 150, 178; --callout-muted-cyan-rgb: 124, 166, 171; --callout-muted-green-rgb: 136, 168, 140; --callout-muted-orange-rgb: 190, 154, 116; --callout-muted-red-rgb: 188, 128, 128; --callout-muted-purple-rgb: 160, 138, 181; --callout-muted-gray-rgb: 150, 150, 150; }
+
+body {
+  --callout-muted-blue: rgb(var(--callout-muted-blue-rgb));
+  --callout-muted-cyan: rgb(var(--callout-muted-cyan-rgb));
+  --callout-muted-green: rgb(var(--callout-muted-green-rgb));
+  --callout-muted-orange: rgb(var(--callout-muted-orange-rgb));
+  --callout-muted-red: rgb(var(--callout-muted-red-rgb));
+  --callout-muted-purple: rgb(var(--callout-muted-purple-rgb));
+  --callout-muted-gray: rgb(var(--callout-muted-gray-rgb));
+}
+
+body .callout {
+  --callout-color: var(--callout-muted-blue);
+  --callout-border-opacity: 0.35;
+  --callout-border-width: 1px;
+  border-color: color-mix(in srgb, var(--callout-color) 35%, transparent);
+}
+body .callout[data-callout="note"],
+body .callout[data-callout="info"],
+body .callout[data-callout="todo"] { --callout-color: var(--callout-muted-blue); }
+body .callout[data-callout="abstract"],
+body .callout[data-callout="summary"],
+body .callout[data-callout="tldr"],
+body .callout[data-callout="tip"],
+body .callout[data-callout="hint"],
+body .callout[data-callout="important"] { --callout-color: var(--callout-muted-cyan); }
+body .callout[data-callout="success"],
+body .callout[data-callout="check"],
+body .callout[data-callout="done"] { --callout-color: var(--callout-muted-green); }
+body .callout[data-callout="idea"],
+body .callout[data-callout="question"],
+body .callout[data-callout="help"],
+body .callout[data-callout="faq"],
+body .callout[data-callout="warning"],
+body .callout[data-callout="caution"],
+body .callout[data-callout="attention"] { --callout-color: var(--callout-muted-orange); }
+body .callout[data-callout="failure"],
+body .callout[data-callout="fail"],
+body .callout[data-callout="missing"],
+body .callout[data-callout="danger"],
+body .callout[data-callout="error"],
+body .callout[data-callout="bug"] { --callout-color: var(--callout-muted-red); }
+body .callout[data-callout="example"] { --callout-color: var(--callout-muted-purple); }
+body .callout[data-callout="quote"],
+body .callout[data-callout="cite"] { --callout-color: var(--callout-muted-gray); }
+
+/* Images in monochrome too (optional; delete this block to keep photos in colour) */
+.markdown-rendered img,
+.markdown-source-view img {
+  filter: grayscale(1);
+}
